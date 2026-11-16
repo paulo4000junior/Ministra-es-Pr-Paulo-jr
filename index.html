@@ -1,131 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#101d35">
-<title>Ministrações | Pr Paulo Jr.</title>
+<meta name="description" content="Ministrações — Pr Paulo Jr.">
+<link rel="manifest" href="./manifest.json">
+<title>Ministrações — Pr Paulo Jr.</title>
 <style>
-:root{--navy:#101d35;--navy2:#172947;--gold:#c9a45c;--gold2:#e3c783;--paper:#f5f6f8;--ink:#172033;--muted:#687386;--line:#dce1e8;--white:#fff;--red:#b63c42;--blue:#245a9b;--green:#287a58;--shadow:0 8px 28px #0c18301a}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-header{background:linear-gradient(120deg,var(--navy),#21395c);color:#fff;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:var(--shadow)}
-.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold2);font-size:22px}.brand h1{font-size:18px;margin:0;letter-spacing:.3px}.brand small{color:#d7c49e;display:block;font-size:12px}
-.header-actions{display:flex;gap:8px;flex-wrap:wrap}.wrap{max-width:1400px;margin:auto;padding:20px;display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px}
-.panel,.editor{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.sidebar{padding:16px;height:max-content;position:sticky;top:14px}.sidebar h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:4px 0 12px}
-button,.btn{border:0;border-radius:9px;padding:10px 13px;font:600 13px system-ui;cursor:pointer;transition:.15s}button:hover{filter:brightness(1.06);transform:translateY(-1px)}button:focus-visible,input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);outline-offset:2px}
-.primary{background:var(--navy);color:#fff}.gold{background:var(--gold);color:#172033}.soft{background:#edf1f6;color:var(--navy)}.danger{background:#fff0f0;color:var(--red)}.full{width:100%}
-.search{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;margin-bottom:10px;font:inherit}.saved-list{display:grid;gap:7px;max-height:55vh;overflow:auto}.saved-item{background:#f5f7fa;border:1px solid transparent;border-radius:9px;padding:10px;text-align:left;color:var(--ink);width:100%}.saved-item.active{border-color:var(--gold);background:#fffaf0}.saved-item strong{display:block;font-size:13px}.saved-item small{color:var(--muted);font-size:11px}
-.editor{padding:22px;min-width:0}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:15px}.topline h2{margin:0;font-size:20px;color:var(--navy)}.actions{display:flex;gap:7px;flex-wrap:wrap}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:13px}.field label{display:block;font-size:12px;font-weight:700;color:#536075;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:9px;padding:11px 12px;font:inherit;background:#fff;color:var(--ink)}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus{border-color:var(--gold)}
-.section-title{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:13px 0 8px;margin:6px 0 12px}.section-title h3{margin:0;color:var(--navy);font-size:15px}.section-title span{font-size:11px;color:var(--muted)}
-.toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.toolbar button{padding:7px 10px}.rich{border:1px solid var(--line);border-radius:9px;min-height:115px;padding:12px;outline:none;line-height:1.65}.rich:focus{border-color:var(--gold)}.rich:empty:before{content:attr(data-placeholder);color:#9aa3b1}
-.blocks{display:grid;gap:12px}.block{border:1px solid var(--line);border-radius:11px;padding:13px;background:#fbfcfd}.block-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}.block-head strong{color:var(--navy);font-size:13px}.block input{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;font:inherit;margin-bottom:8px}.block .rich{background:white}
-.note{font-size:12px;color:var(--muted)}.status{color:var(--green);font-size:12px}.footer{padding:15px;text-align:center;color:#7b8492;font-size:11px}
-.pulpit{position:fixed;inset:0;background:#080e19;color:#fff;z-index:10;display:none;overflow:auto;padding:5vh 8vw}.pulpit.show{display:block}.pulpit .p-controls{position:fixed;top:15px;right:18px;display:flex;gap:8px}.pulpit h1{font-size:clamp(28px,5vw,56px);color:var(--gold2);line-height:1.15}.pulpit .p-meta{color:#c7d0df;font-size:clamp(16px,2vw,23px)}.pulpit-content{font-size:clamp(20px,3vw,34px);line-height:1.6;max-width:1100px;margin:30px auto}.pulpit-content h2{color:var(--gold2)}.pulpit-content .verse{color:#ff8585}.pulpit-content .impact{color:#f0cb72;font-weight:800}
-.preview{display:none}.preview.show{display:block;background:#101d35;color:#fff;padding:25px;border-radius:12px;margin-top:18px}.preview h2{color:var(--gold2)}
-@media(max-width:850px){.wrap{grid-template-columns:1fr;padding:12px}.sidebar{position:static}.saved-list{max-height:230px}.editor{padding:15px}header{padding:14px}.grid2{grid-template-columns:1fr}.brand h1{font-size:16px}}
-@media print{header,.sidebar,.topline .actions,.pulpit,.no-print{display:none!important}.wrap{display:block;padding:0}.editor{border:0;box-shadow:none;padding:0}.field input,.field textarea{border:0;padding:0}.rich{border:0;padding:0}.block{break-inside:avoid}}
+:root{--navy:#101d35;--navy2:#172945;--gold:#d6b66b;--paper:#f5f7fb;--ink:#182235;--muted:#718096;--line:#dce3ed;--red:#a83232}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(135deg,var(--navy),#20395e);color:white;padding:18px max(16px,env(safe-area-inset-left));border-bottom:3px solid var(--gold)}
+.head{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:.2px;font-size:20px}.brand small{display:block;color:#e2c985;font-size:12px;font-weight:600;letter-spacing:1.3px}
+main{max-width:1100px;margin:20px auto;padding:0 14px 40px;display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px}
+.panel,.editor{background:white;border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 20px #14213a0b}
+.panel{padding:14px;height:max-content;position:sticky;top:12px}.editor{padding:20px;min-width:0}
+h1,h2,h3,p{margin-top:0}h1{font-size:23px;margin-bottom:4px;color:var(--navy)}h2{font-size:17px;color:var(--navy);margin:24px 0 9px;border-bottom:1px solid var(--line);padding-bottom:7px}
+.sub{color:var(--muted);font-size:13px}.field{margin:12px 0}.field label{display:block;font-size:12px;font-weight:800;color:#526078;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+input,textarea{font:inherit;width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink);outline:none}
+input:focus,textarea:focus,.rich:focus{border-color:#718bb4;box-shadow:0 0 0 3px #718bb422}
+textarea{min-height:90px;resize:vertical}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{font:600 14px system-ui;cursor:pointer;border:0;border-radius:9px;padding:9px 12px}
+.primary{background:var(--navy);color:white}.gold{background:var(--gold);color:#1b2433}.soft{background:#edf1f7;color:#253650}.danger{background:#fff0f0;color:#a52e35}.outline{background:transparent;border:1px solid #8391a6;color:inherit}
+button:active{transform:translateY(1px)}.wide{width:100%}
+#search{margin:12px 0}.saved-list{display:grid;gap:7px;max-height:55vh;overflow:auto}
+.saved-item{background:#f4f6fa;text-align:left;border:1px solid transparent;color:var(--ink);padding:10px}.saved-item.active{border-color:var(--gold);background:#fffaf0}.saved-item strong,.saved-item small{display:block}.saved-item small{font-weight:400;color:var(--muted);font-size:11px;margin-top:3px}
+.toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.toolbar button{min-width:36px;padding:7px 10px}.rich{min-height:100px;border:1px solid #cbd5e1;border-radius:9px;padding:12px;outline:none;overflow-wrap:anywhere}.rich:empty:before{content:attr(data-placeholder);color:#9aa5b5;pointer-events:none}
+.rich p{margin:0 0 8px}.verse{color:#a32f35;font-weight:700}.impact{color:#8a6417;font-weight:800;background:#fff4d8;padding:2px 4px;border-radius:4px}
+.block{border:1px solid var(--line);border-radius:11px;padding:12px;margin:12px 0;background:#fcfdff}.block-head{display:flex;justify-content:space-between;align-items:center;color:#9a762e;font-size:12px;letter-spacing:.7px;margin-bottom:8px}.point-title{font-weight:700;margin-bottom:8px}
+.status{font-size:12px;color:var(--muted);margin-left:auto}.footnote{font-size:12px;color:var(--muted);margin-top:12px}
+#pulpit{display:none;position:fixed;inset:0;background:#080e18;color:#fff;z-index:20;overflow:auto;padding:24px max(18px,env(safe-area-inset-left)) 60px}
+.pulpit-inner{max-width:900px;margin:35px auto;font-size:25px;line-height:1.65}.pulpit-inner h1{color:var(--gold);font-size:1.5em}.pulpit-inner h2{color:var(--gold);border-color:#536078;font-size:1.05em;margin-top:1.3em}.pulpit-inner .verse{color:#ff9292}.pulpit-inner .impact{background:#42351c;color:#ffe09a}
+.pulpit-controls{position:fixed;top:12px;right:12px;display:flex;gap:7px;z-index:21}.pulpit-controls button{font-size:13px}
+@media(max-width:760px){main{grid-template-columns:1fr;margin-top:12px}.panel{position:static}.saved-list{max-height:210px}.editor{padding:15px}.brand{font-size:18px}}
+@media print{header,.panel,.actions,.toolbar,.footnote{display:none!important}main{display:block;margin:0;padding:0}.editor{border:0;box-shadow:none;padding:0}.rich{border:0;padding:0}.block{break-inside:avoid}}
 </style>
-
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icons/icon-192.png" type="image/png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Ministrações">
-
 </head>
 <body>
-<header>
- <div class="brand"><div class="mark">✦</div><div><h1>MINISTRAÇÕES</h1><small>Pr Paulo Jr. · Arte com propósito</small></div></div>
- <div class="header-actions"><button class="gold" id="newBtn">＋ Nova ministração</button><button class="soft" id="pulpitBtn">▣ Modo Púlpito</button></div>
-</header>
-<div class="wrap">
- <aside class="panel sidebar">
-  <h2>Minha biblioteca</h2>
-  <input class="search" id="search" placeholder="Buscar por tema ou texto bíblico…">
-  <button class="primary full" id="newSide">＋ Criar esboço</button>
-  <div style="height:12px"></div><div class="saved-list" id="savedList"></div>
-  <div style="height:14px"></div>
-  <button class="soft full" id="exportBtn">⇩ Fazer backup</button>
-  <button class="soft full" style="margin-top:7px" id="importBtn">⇧ Restaurar backup</button>
-  <input type="file" id="importFile" accept=".json,application/json" hidden>
-  <p class="note">Suas ministrações ficam salvas neste aparelho, neste navegador.</p>
- </aside>
- <main class="editor">
-  <div class="topline"><h2 id="formHeading">Nova ministração</h2><div class="actions"><span class="status" id="saveStatus">● Salvamento automático</span><button class="soft" id="duplicateBtn">Duplicar</button><button class="soft" id="printBtn">Imprimir / PDF</button><button class="danger" id="deleteBtn">Excluir</button></div></div>
-  <div class="grid2">
-   <div class="field"><label for="title">TEMA DA MINISTRAÇÃO</label><input id="title" placeholder="Ex.: Onde está o seu coração?"></div>
-   <div class="field"><label for="reference">TEXTO BÍBLICO PRINCIPAL</label><input id="reference" placeholder="Ex.: Mateus 6:19-21"></div>
-   <div class="field"><label for="occasion">CULTO / OCASIÃO</label><input id="occasion" placeholder="Ex.: Culto da Família · Quinta da Vitória"></div>
-   <div class="field"><label for="date">DATA</label><input id="date" type="date"></div>
+<header><div class="head"><div class="brand">MINISTRAÇÕES <small>PR PAULO JR. · ARTE COM PROPÓSITO</small></div><div class="row"><span id="saveStatus" class="status" style="color:#e7d8ad">Pronto</span><button class="gold" id="pulpitBtn">Modo Púlpito</button></div></div></header>
+<main>
+<aside class="panel">
+  <button class="primary wide" id="newBtn">＋ Nova ministração</button>
+  <input id="search" placeholder="Buscar ministração...">
+  <div id="savedList" class="saved-list"></div>
+  <div class="row" style="margin-top:14px">
+    <button class="soft" id="exportBtn">Exportar backup</button>
+    <button class="soft" id="importBtn">Importar</button>
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
   </div>
-  <div class="section-title"><h3>Introdução</h3><span>Apresente o tema e desperte a atenção</span></div>
+  <p class="footnote">Suas ministrações ficam salvas neste aparelho. Exporte um backup para guardar uma cópia.</p>
+</aside>
+<section class="editor">
+  <div class="row actions" style="justify-content:space-between">
+    <div><h1 id="formHeading">Nova ministração</h1><div class="sub">Organize seu esboço com clareza e propósito.</div></div>
+    <div class="row"><button class="soft" id="duplicateBtn">Duplicar</button><button class="danger" id="deleteBtn">Excluir</button></div>
+  </div>
+  <div class="field"><label for="title">Título da ministração</label><input id="title" placeholder="Ex.: Onde está o seu tesouro?"></div>
+  <div class="row">
+    <div class="field" style="flex:2;min-width:180px"><label for="reference">Texto bíblico</label><input id="reference" placeholder="Ex.: Mateus 6:19–21"></div>
+    <div class="field" style="flex:1;min-width:140px"><label for="date">Data</label><input id="date" type="date"></div>
+  </div>
+  <div class="field"><label for="occasion">Ocasião / culto</label><input id="occasion" placeholder="Ex.: Culto da família, Quinta da Vitória..."></div>
+
+  <h2>Introdução</h2>
   <div class="toolbar" data-target="intro"><button class="soft" data-cmd="bold"><b>B</b></button><button class="soft" data-cmd="italic"><i>I</i></button><button class="soft" data-style="verse">Versículo</button><button class="soft" data-style="impact">Frase de impacto</button></div>
-  <div class="rich" id="intro" contenteditable="true" data-placeholder="Escreva aqui a abertura, contexto e ilustração inicial…"></div>
-  <div class="section-title"><h3>Desenvolvimento</h3><span>Organize os pontos da mensagem</span></div>
-  <div class="blocks" id="points"></div>
-  <button class="soft no-print" id="addPoint">＋ Adicionar tópico</button>
-  <div class="section-title"><h3>Conclusão e apelo</h3><span>Finalize conduzindo à reflexão e à prática</span></div>
+  <div id="intro" class="rich" contenteditable="true" data-placeholder="Escreva a abertura, contexto bíblico e ilustração inicial..."></div>
+
+  <div class="row" style="justify-content:space-between;margin-top:24px"><h2 style="margin:0;border:0">Desenvolvimento</h2><button class="gold" id="addPointBtn">＋ Adicionar tópico</button></div>
+  <div id="points"></div>
+
+  <h2>Conclusão e apelo</h2>
   <div class="toolbar" data-target="conclusion"><button class="soft" data-cmd="bold"><b>B</b></button><button class="soft" data-cmd="italic"><i>I</i></button><button class="soft" data-style="verse">Versículo</button><button class="soft" data-style="impact">Frase de impacto</button></div>
-  <div class="rich" id="conclusion" contenteditable="true" data-placeholder="Escreva a conclusão, aplicação, convite e oração final…"></div>
-  <div class="section-title"><h3>Anotações pessoais</h3><span>Observações para a próxima ministração</span></div>
-  <div class="field"><textarea id="notes" placeholder="Anotações, referências complementares, lembretes…"></textarea></div>
-  <div class="preview" id="preview"></div>
-  <div class="footer">Ministrações · Pr Paulo Jr. · Seus estudos, organizados em um só lugar.</div>
- </main>
-</div>
-<div class="pulpit" id="pulpit">
- <div class="p-controls"><button class="gold" id="fontDown">A−</button><button class="gold" id="fontUp">A＋</button><button class="soft" id="exitPulpit">✕ Sair</button></div>
- <div id="pulpitBody"></div>
+  <div id="conclusion" class="rich" contenteditable="true" data-placeholder="Finalize a mensagem, reforce a verdade central e faça a aplicação..."></div>
+  <h2>Anotações pessoais</h2>
+  <textarea id="notes" placeholder="Lembretes, referências complementares e observações..."></textarea>
+  <div class="row actions" style="margin-top:18px"><button class="primary" id="saveBtn">Salvar agora</button><button class="soft" id="printBtn">Imprimir / PDF</button><span class="status" id="lastStatus"></span></div>
+  <p class="footnote">Dica: selecione um trecho do texto antes de tocar em B ou I para aplicar a formatação.</p>
+</section>
+</main>
+<div id="pulpit">
+ <div class="pulpit-controls"><button class="soft" id="fontDown">A−</button><button class="soft" id="fontUp">A＋</button><button class="gold" id="closePulpit">Fechar ✕</button></div>
+ <article class="pulpit-inner" id="pulpitContent"></article>
 </div>
 <script>
-(()=>{
+'use strict';
 const $=id=>document.getElementById(id);
 const KEY='ministrações_pr_paulo_jr_v1';
-let sermons=[],current=null,saveTimer=null,pointCount=0;
+let sermons=[],current=null,saveTimer=null,pointCount=0,savedRange=null;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const today=()=>new Date().toISOString().slice(0,10);
 function blank(){return {id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),title:'',reference:'',occasion:'',date:today(),intro:'',points:[],conclusion:'',notes:'',updated:Date.now()}}
-function load(){try{sermons=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){sermons=[]}renderList()}
-function persist(){localStorage.setItem(KEY,JSON.stringify(sermons));$('saveStatus').textContent='✓ Salvo neste aparelho';renderList()}
+function persist(){localStorage.setItem(KEY,JSON.stringify(sermons));$('saveStatus').textContent='✓ Salvo neste aparelho';$('lastStatus').textContent='Salvo às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});renderList()}
 function readForm(){if(!current)return;current.title=$('title').value;current.reference=$('reference').value;current.occasion=$('occasion').value;current.date=$('date').value;current.intro=$('intro').innerHTML;current.conclusion=$('conclusion').innerHTML;current.notes=$('notes').value;current.points=[...$('points').querySelectorAll('.block')].map(b=>({heading:b.querySelector('.point-title').value,body:b.querySelector('.rich').innerHTML}));current.updated=Date.now()}
-function save(){if(!current)return;readForm();if(!current.title.trim()&&!current.reference.trim()&&!current.intro.trim()&&!current.points.length&&!current.conclusion.trim())return;const i=sermons.findIndex(x=>x.id===current.id);if(i<0)sermons.unshift(current);else sermons[i]=current;persist()}
-function schedule(){ $('saveStatus').textContent='Salvando…';clearTimeout(saveTimer);saveTimer=setTimeout(save,350)}
-function renderList(){const q=$('search').value.toLowerCase();const list=sermons.filter(s=>(s.title+' '+s.reference+' '+s.occasion).toLowerCase().includes(q));$('savedList').innerHTML=list.length?list.map(s=>`<button class="saved-item ${current&&current.id===s.id?'active':''}" data-id="${esc(s.id)}"><strong>${esc(s.title||'Ministração sem título')}</strong><small>${esc(s.reference||'Sem texto bíblico')} · ${s.date?new Date(s.date+'T12:00:00').toLocaleDateString('pt-BR'):''}</small></button>`).join(''):'<p class="note">Nenhuma ministração salva ainda. Crie seu primeiro esboço.</p>'}
-function addPoint(data={}){pointCount++;const id=pointCount;const div=document.createElement('div');div.className='block';div.innerHTML=`<div class="block-head"><strong>TÓPICO <span class="num">${$('points').children.length+1}</span></strong><button class="danger remove-point">Remover</button></div><input class="point-title" placeholder="Título do tópico (ex.: 1. O tesouro revela prioridades)" value="${esc(data.heading||'')}"><div class="toolbar"><button class="soft" data-cmd="bold"><b>B</b></button><button class="soft" data-cmd="italic"><i>I</i></button><button class="soft" data-style="verse">Versículo</button><button class="soft" data-style="impact">Frase de impacto</button></div><div class="rich" contenteditable="true" data-placeholder="Explique o ponto, acrescente referências bíblicas, exemplos e aplicação…">${data.body||''}</div>`;
-$('points').appendChild(div);div.querySelector('.remove-point').onclick=()=>{div.remove();renumber();schedule()};div.querySelectorAll('input,.rich').forEach(el=>el.addEventListener('input',schedule));renumber()}
-function renumber(){[...$('points').children].forEach((b,i)=>b.querySelector('.num').textContent=i+1)}
-function openSermon(s){save();current=s; $('formHeading').textContent=s.title||'Nova ministração';$('title').value=s.title||'';$('reference').value=s.reference||'';$('occasion').value=s.occasion||'';$('date').value=s.date||today();$('intro').innerHTML=s.intro||'';$('conclusion').innerHTML=s.conclusion||'';$('notes').value=s.notes||'';$('points').innerHTML='';(s.points||[]).forEach(addPoint);renderList();$('saveStatus').textContent='● Salvamento automático'}
-function fresh(){save();current=blank();openSermon(current);$('title').focus()}
-function richAction(btn){const root=btn.closest('.block')||document;const target=root.querySelector('.rich')||$(btn.closest('.toolbar').dataset.target);target.focus();if(btn.dataset.cmd)document.execCommand(btn.dataset.cmd,false,null);if(btn.dataset.style){const span=document.createElement('span');span.className=btn.dataset.style;span.textContent=btn.dataset.style==='verse'?'[Digite o versículo aqui]':'[Sua frase de impacto aqui]';const sel=getSelection();if(sel.rangeCount)sel.getRangeAt(0).insertNode(span);else target.append(span)}schedule()}
+function save(){if(!current)return;readForm();if(!current.title.trim()&&!current.reference.trim()&&!current.intro.trim()&&!current.points.some(p=>p.heading.trim()||p.body.trim())&&!current.conclusion.trim()&&!current.notes.trim())return;const i=sermons.findIndex(x=>x.id===current.id);if(i<0)sermons.unshift(current);else sermons[i]=current;persist()}
+function schedule(){$('saveStatus').textContent='Salvando…';clearTimeout(saveTimer);saveTimer=setTimeout(save,450)}
+function renderList(){const q=$('search').value.toLowerCase();const list=sermons.filter(s=>(s.title+' '+s.reference+' '+s.occasion).toLowerCase().includes(q));$('savedList').innerHTML=list.length?list.map(s=>`<button class="saved-item ${current&&current.id===s.id?'active':''}" data-id="${esc(s.id)}"><strong>${esc(s.title||'Ministração sem título')}</strong><small>${esc(s.reference||'Sem texto bíblico')} · ${s.date?new Date(s.date+'T12:00:00').toLocaleDateString('pt-BR'):''}</small></button>`).join(''):'<p class="sub">Nenhuma ministração salva ainda. Crie seu primeiro esboço.</p>'}
+function addPoint(data={}){pointCount++;const div=document.createElement('div');div.className='block';div.innerHTML=`<div class="block-head"><strong>TÓPICO <span class="num"></span></strong><button type="button" class="danger remove-point">Remover</button></div><input class="point-title" placeholder="Título do tópico (ex.: 1. O tesouro revela prioridades)" value="${esc(data.heading||'')}"><div class="toolbar"><button type="button" class="soft" data-cmd="bold"><b>B</b></button><button type="button" class="soft" data-cmd="italic"><i>I</i></button><button type="button" class="soft" data-style="verse">Versículo</button><button type="button" class="soft" data-style="impact">Frase de impacto</button></div><div class="rich" contenteditable="true" data-placeholder="Explique o ponto, acrescente referências bíblicas, exemplos e aplicação…">${data.body||''}</div>`;$('points').appendChild(div);div.querySelector('.remove-point').onclick=()=>{div.remove();renumber();schedule()};div.querySelectorAll('input,.rich').forEach(el=>el.addEventListener('input',schedule));renumber()}
+function renumber(){[...$('points').querySelectorAll('.block')].forEach((b,i)=>b.querySelector('.num').textContent=i+1)}
+function clearForm(){ $('formHeading').textContent='Nova ministração';$('title').value='';$('reference').value='';$('occasion').value='';$('date').value=current.date||today();$('intro').innerHTML='';$('conclusion').innerHTML='';$('notes').value='';$('points').innerHTML='';addPoint();renderList()}
+function openSermon(s){if(current&&current.id!==s.id)save();clearTimeout(saveTimer);current=s;$('formHeading').textContent=s.title||'Nova ministração';$('title').value=s.title||'';$('reference').value=s.reference||'';$('occasion').value=s.occasion||'';$('date').value=s.date||today();$('intro').innerHTML=s.intro||'';$('conclusion').innerHTML=s.conclusion||'';$('notes').value=s.notes||'';$('points').innerHTML='';pointCount=0;(s.points||[]).forEach(addPoint);if(!s.points||!s.points.length)addPoint();renderList();$('saveStatus').textContent='● Salvamento automático'}
+function richAction(btn){const block=btn.closest('.block'),toolbar=btn.closest('.toolbar');const target=block?block.querySelector('.rich'):$(toolbar.dataset.target);target.focus();const sel=window.getSelection();if(savedRange){try{sel.removeAllRanges();sel.addRange(savedRange)}catch(e){}}if(btn.dataset.cmd){document.execCommand(btn.dataset.cmd,false,null)}if(btn.dataset.style){const span=document.createElement('span');span.className=btn.dataset.style;span.textContent=btn.dataset.style==='verse'?'[Digite o versículo aqui]':'[Sua frase de impacto aqui]';if(sel.rangeCount&&target.contains(sel.getRangeAt(0).commonAncestorContainer)){sel.getRangeAt(0).insertNode(span)}else{target.appendChild(span)} }savedRange=null;schedule()}
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('.toolbar button');if(!b)return;const sel=window.getSelection();if(sel&&sel.rangeCount){const r=sel.getRangeAt(0);const n=r.commonAncestorContainer;const el=n.nodeType===1?n:n.parentElement;if(el&&el.closest('.rich'))savedRange=r.cloneRange()}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-cmd],[data-style]');if(b){e.preventDefault();richAction(b)}});
-document.addEventListener('input',e=>{if(e.target.matches('input,textarea,.rich'))schedule()});
-['title','reference','occasion','date','intro','conclusion','notes'].forEach(id=>$(id).addEventListener('input',schedule));
-$('newBtn').onclick=fresh;$('newSide').onclick=fresh;$('addPoint').onclick=()=>{addPoint();schedule()};
-$('search').oninput=renderList;
-$('savedList').onclick=e=>{const b=e.target.closest('[data-id]');if(b){const s=sermons.find(x=>x.id===b.dataset.id);if(s)openSermon(s)}};
-$('deleteBtn').onclick=()=>{if(!current)return;if(!confirm('Excluir esta ministração? Esta ação não pode ser desfeita.'))return;sermons=sermons.filter(s=>s.id!==current.id);current=blank();openSermon(current);persist()};
-$('duplicateBtn').onclick=()=>{readForm();const copy=JSON.parse(JSON.stringify(current));copy.id=String(Date.now());copy.title=(copy.title||'Ministração')+' (cópia)';current=copy;openSermon(copy);save()};
-$('printBtn').onclick=()=>{save();window.print()};
-$('exportBtn').onclick=()=>{save();const blob=new Blob([JSON.stringify(sermons,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='backup-ministracoes-pr-paulo-jr.json';a.click();URL.revokeObjectURL(a.href)};
+$('savedList').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(!b)return;const s=sermons.find(x=>x.id===b.dataset.id);if(s)openSermon(s)});
+$('newBtn').onclick=()=>{save();openSermon(blank())};
+$('addPointBtn').onclick=()=>{addPoint();schedule()};
+$('saveBtn').onclick=()=>{clearTimeout(saveTimer);save();$('saveStatus').textContent='✓ Salvo'};
+$('deleteBtn').onclick=()=>{if(!current)return;if(!confirm('Excluir esta ministração? Esta ação não pode ser desfeita.'))return;clearTimeout(saveTimer);const deletedId=current.id;sermons=sermons.filter(s=>s.id!==deletedId);current=blank();clearForm();persist()};
+$('duplicateBtn').onclick=()=>{if(!current)return;readForm();const copy=JSON.parse(JSON.stringify(current));copy.id=crypto.randomUUID?crypto.randomUUID():String(Date.now());copy.title=(copy.title||'Ministração')+' (cópia)';copy.updated=Date.now();openSermon(copy);save()};
+$('search').addEventListener('input',renderList);
+['title','reference','occasion','date','notes'].forEach(id=>$(id).addEventListener('input',schedule));
+['intro','conclusion'].forEach(id=>$(id).addEventListener('input',schedule));
+$('exportBtn').onclick=()=>{save();const blob=new Blob([JSON.stringify({app:'Ministrações — Pr Paulo Jr.',version:1,sermons},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='backup-ministracoes-paulo-jr.json';a.click();URL.revokeObjectURL(a.href)};
 $('importBtn').onclick=()=>$('importFile').click();
-$('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error();if(!confirm(`Importar ${data.length} ministração(ões)? Itens com o mesmo identificador serão substituídos.`))return;for(const s of data){const i=sermons.findIndex(x=>x.id===s.id);if(i>=0)sermons[i]=s;else sermons.push(s)}persist();alert('Backup restaurado com sucesso.')}catch(err){alert('Não foi possível ler esse backup. Selecione um arquivo JSON exportado por este aplicativo.')}e.target.value=''};
-function pulpitHTML(){readForm();const points=current.points.map((p,i)=>`<h2>${i+1}. ${esc(p.heading)}</h2><div>${p.body||''}</div>`).join('');return `<h1>${esc(current.title||'Minha ministração')}</h1><div class="p-meta">${esc(current.reference)} ${current.occasion?'· '+esc(current.occasion):''}</div><div class="pulpit-content"><h2>Introdução</h2>${current.intro||''}${points}<h2>Conclusão</h2>${current.conclusion||''}</div>`}
-$('pulpitBtn').onclick=()=>{$('pulpitBody').innerHTML=pulpitHTML();$('pulpit').classList.add('show')};$('exitPulpit').onclick=()=>$('pulpit').classList.remove('show');
-let font=1;$('fontUp').onclick=()=>{font=Math.min(1.5,font+.1);$('pulpitBody').style.zoom=font};$('fontDown').onclick=()=>{font=Math.max(.7,font-.1);$('pulpitBody').style.zoom=font};
-load();if(sermons.length)openSermon(sermons[0]);else{current=blank();openSermon(current);addPoint()}
-window.addEventListener('beforeunload',save);
-})();
+$('importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());const incoming=Array.isArray(data)?data:data.sermons;if(!Array.isArray(incoming))throw Error('Arquivo inválido');if(!confirm(`Importar ${incoming.length} ministração(ões)? Os itens serão adicionados à sua lista.`))return;save();const ids=new Set(sermons.map(s=>s.id));incoming.forEach(s=>{if(s&&typeof s==='object'){const item={...s,id:ids.has(s.id)?(crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random())):s.id||String(Date.now()+Math.random())};sermons.push(item)}});persist();alert('Backup importado com sucesso!')}catch(err){alert('Não foi possível importar. Confira se o arquivo é um backup válido.')}e.target.value=''};
+$('printBtn').onclick=()=>{save();window.print()};
+function pulpit(){save();const s=current||blank();let out=`<h1>${esc(s.title||'Ministração')}</h1><p><strong>${esc(s.reference||'')}</strong> ${esc(s.date||'')}</p>`;if(s.intro)out+=`<h2>Introdução</h2><div>${s.intro}</div>`;(s.points||[]).forEach((p,i)=>{out+=`<h2>${i+1}. ${esc(p.heading||'Tópico')}</h2><div>${p.body||''}</div>`});if(s.conclusion)out+=`<h2>Conclusão e apelo</h2><div>${s.conclusion}</div>`;if(s.notes)out+=`<h2>Anotações</h2><p>${esc(s.notes).replace(/\n/g,'<br>')}</p>`;$('pulpitContent').innerHTML=out;$('pulpit').style.display='block'}
+$('pulpitBtn').onclick=pulpit;$('closePulpit').onclick=()=>$('pulpit').style.display='none';
+let fontSize=25;$('fontUp').onclick=()=>{$('pulpitContent').style.fontSize=(fontSize=Math.min(42,fontSize+2))+'px'};$('fontDown').onclick=()=>{$('pulpitContent').style.fontSize=(fontSize=Math.max(16,fontSize-2))+'px'};
+function load(){try{const parsed=JSON.parse(localStorage.getItem(KEY)||'[]');sermons=Array.isArray(parsed)?parsed:[]}catch(e){sermons=[]}if(sermons.length)openSermon(sermons[0]);else{current=blank();clearForm()}}
+window.addEventListener('beforeunload',()=>{clearTimeout(saveTimer);save()});
+load();
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 </script>
-
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(err => console.warn("Não foi possível registrar o modo offline:", err));
-  });
-}
-</script>
-
 </body>
 </html>
